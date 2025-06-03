@@ -5,20 +5,18 @@ jobs:
   external-workflow:
     runs-on: ubuntu-latest
     steps:
-      # Step 1: Checkout your own repository (important!)
+      # Checkout your own repo (default to workspace root)
       - uses: actions/checkout@v3
-        with:
-          path: my-repo
 
-      # Step 2: Checkout external repository
+      # Checkout external repo into 'external-repo' folder
       - uses: actions/checkout@v3
         with:
           repository: 'abystoma/external-workflow'
           ref: '3eb718710f20d7df6874acdc41e189a2ae4182f5'
           path: external-repo
 
-      # Step 3: Print greeting.txt from your own repo
+      # Read greeting.txt from your repo root
       - name: Greetings
         run: |
           echo "Greeting text:"
-          cat my-repo/greeting.txt
+          cat greeting.txt
