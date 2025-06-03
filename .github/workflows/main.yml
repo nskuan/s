@@ -1,0 +1,4 @@
+- name: Greetings
+  run: |
+    echo "Greeting text:"
+    cat greeting.txt
